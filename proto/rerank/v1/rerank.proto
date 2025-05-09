@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package rerank.v1;
+
+import "core/v1/meta.proto";
+
+service Rerank { rpc RankDocuments(RerankRequest) returns (RerankResponse); }
+
+message RerankRequest {
+  core.v1.RequestMeta meta = 1;
+  string query = 2;
+  repeated string documents = 3;
+}
+
+message RerankResponse {
+  core.v1.RequestMeta meta = 1;
+  repeated Result results = 2;
+  string error = 3;
+}
+
+message Result {
+  uint32 index = 1;
+  float score = 2;
+}

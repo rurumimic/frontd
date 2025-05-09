@@ -1,0 +1,8 @@
+syntax = "proto3";
+
+package core.v1;
+
+message RequestMeta {
+  string request_id = 1;
+  string model = 2;
+}
