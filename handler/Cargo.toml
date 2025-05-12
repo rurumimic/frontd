@@ -1,5 +1,5 @@
 [package]
-name = "handler"
+name = "frontd-handler"
 version = "0.1.0"
 edition = "2021"
 publish = false
@@ -15,6 +15,7 @@ prost = "0.13.5"
 tokio = { version = "1.44.2", features = ["macros", "rt-multi-thread"] }
 tonic = "0.13.0"
 tonic-reflection = "0.13.0"
+frontd-inference = { path = "../inference" }
 
 [build-dependencies]
 tonic-build = "0.13.0"

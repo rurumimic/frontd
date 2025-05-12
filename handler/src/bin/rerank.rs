@@ -1,7 +1,7 @@
 use tonic::{transport::Server, Request, Response, Status};
 
-use handler::proto::rerank::v1::rerank_server::RerankServer;
-use handler::service::rerank::RerankService;
+use frontd_handler::proto::rerank::v1::rerank_server::RerankServer;
+use frontd_handler::service::rerank::RerankService;
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {

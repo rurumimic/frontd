@@ -1,6 +1,6 @@
-use handler::proto::core::v1::RequestMeta;
-use handler::proto::rerank::v1::rerank_client::RerankClient;
-use handler::proto::rerank::v1::RerankRequest;
+use frontd_handler::proto::core::v1::RequestMeta;
+use frontd_handler::proto::rerank::v1::rerank_client::RerankClient;
+use frontd_handler::proto::rerank::v1::RerankRequest;
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {

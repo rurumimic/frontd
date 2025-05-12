@@ -17,20 +17,14 @@ impl Rerank for RerankService {
         let request = request.into_inner();
         println!("Received request: {:?}", request);
 
-        let results = vec![
-            RerankResult {
-                index: 0,
-                score: 0.95,
-            },
-            RerankResult {
-                index: 1,
-                score: 0.85,
-            },
-            RerankResult {
-                index: 2,
-                score: 0.75,
-            },
-        ];
+        let results = frontd_inference::rerank::Rerank::new(request.query, request.documents)
+            .rerank_documents()
+            .iter()
+            .map(|doc| RerankResult {
+                index: doc.index as u32,
+                score: doc.score,
+            })
+            .collect::<Vec<RerankResult>>();
 
         let response = RerankResponse {
             meta: request.meta.clone(),
